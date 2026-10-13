@@ -4,12 +4,16 @@ Aluguel de carros entre vizinhos, cobrado por hora. Este protótipo simula o app
 
 ## Como abrir no celular
 
-Mande o arquivo **`Giro.html`** para o celular (WhatsApp, e-mail, Drive ou AirDrop) e abra no navegador. É um arquivo único, de cerca de 500 KB, com o app inteiro dentro: funciona até sem internet, e nesse caso usa o mapa desenhado.
+Abra **https://tcdelisboa.github.io/app-geo/** no Safari (iPhone) ou no Chrome (Android). Não precisa de login.
 
-- **iPhone:** salve em Arquivos e toque nele, ou abra pelo Safari.
-- **Android:** abra o download com o Chrome.
+Para ter um ícone na tela inicial e abrir em tela cheia, como um app:
 
-Para gerar de novo depois de mudar o código: `npm run single`.
+- **iPhone (Safari):** botão Compartilhar → Adicionar à Tela de Início.
+- **Android (Chrome):** menu ⋮ → Adicionar à tela inicial (ou Instalar app).
+
+O site é publicado a partir da branch `gh-pages`, que contém `Giro.html` como `index.html`. Para atualizar: `npm run single` e copie `Giro.html` para `index.html` na branch `gh-pages`.
+
+`Giro.html` também abre direto do disco no computador. No iPhone, e na pré-visualização do WhatsApp, um arquivo HTML aberto direto do aparelho não roda o app: use o link.
 
 ## Como abrir no computador
 
