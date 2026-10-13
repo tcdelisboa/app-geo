@@ -103,7 +103,7 @@ body { margin: 0; font-family: var(--font-sans); background: var(--surface); col
 /* CarCard */
 .gr-car { position: relative; display: flex; align-items: center; gap: var(--space-3); width: 100%; padding: var(--space-3) 0; border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; }
 button.gr-car { cursor: pointer; border-radius: var(--radius-sm); -webkit-tap-highlight-color: transparent; }
-button.gr-car:hover .gr-car-name { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+@media (hover: hover) { button.gr-car:hover .gr-car-name { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; } }
 button.gr-car:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
 .gr-car + .gr-car::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--line); }
 .gr-car-thumb { position: relative; display: grid; place-items: center; width: 64px; height: 64px; border-radius: var(--radius-sm); background: var(--surface-muted); color: var(--ink-muted); flex: none; overflow: hidden; }

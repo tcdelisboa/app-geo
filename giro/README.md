@@ -2,7 +2,16 @@
 
 Aluguel de carros entre vizinhos, cobrado por hora. Este protótipo simula o app funcionando de ponta a ponta, para demonstrações e conversas com investidores. Todos os carros, pessoas e valores são fictícios e nenhum pagamento é cobrado.
 
-## Como abrir
+## Como abrir no celular
+
+Mande o arquivo **`Giro.html`** para o celular (WhatsApp, e-mail, Drive ou AirDrop) e abra no navegador. É um arquivo único, de cerca de 500 KB, com o app inteiro dentro: funciona até sem internet, e nesse caso usa o mapa desenhado.
+
+- **iPhone:** salve em Arquivos e toque nele, ou abra pelo Safari.
+- **Android:** abra o download com o Chrome.
+
+Para gerar de novo depois de mudar o código: `npm run single`.
+
+## Como abrir no computador
 
 Site estático, sem nada para instalar:
 

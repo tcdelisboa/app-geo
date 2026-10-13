@@ -5,6 +5,7 @@
   "scripts": {
     "build": "esbuild src/main.jsx --bundle --format=iife --target=es2019 --jsx-factory=React.createElement --jsx-fragment=React.Fragment --outfile=dist/app.js",
     "watch": "npm run build -- --watch",
+    "single": "npm run build && python3 scripts/build_single.py",
     "start": "python3 -m http.server 8000"
   },
   "devDependencies": {

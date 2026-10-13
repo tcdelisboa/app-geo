@@ -98,7 +98,7 @@ button { font: inherit; color: inherit; }
 .place-list, .model-list { display: flex; flex-direction: column; padding: 0 var(--space-2); }
 .model-list { padding: 0; max-height: 240px; overflow-y: auto; }
 .place { display: flex; align-items: center; gap: var(--space-3); min-height: 56px; padding: 6px var(--space-2); border: 0; border-radius: var(--radius-sm); background: none; text-align: left; cursor: pointer; }
-.place:hover { background: var(--surface-muted); }
+@media (hover: hover) { .place:hover { background: var(--surface-muted); } }
 .place:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .place-on .row-label { font-weight: 650; }
 .place-check { color: var(--accent-ink); margin-left: auto; }
@@ -212,7 +212,7 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Trips ---------- */
 .trip { display: flex; align-items: center; gap: var(--space-3); width: 100%; padding: var(--space-3); margin-bottom: var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); text-align: left; cursor: pointer; }
-.trip:hover { border-color: var(--line-strong); }
+@media (hover: hover) { .trip:hover { border-color: var(--line-strong); } }
 .trip:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .trip-meta { display: flex; align-items: center; gap: var(--space-2); margin-top: 6px; font-size: 13px; font-variant-numeric: tabular-nums; }
 .empty-big { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: 64px var(--space-6); text-align: center; }
