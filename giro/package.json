@@ -1,0 +1,13 @@
+{
+  "name": "giro",
+  "private": true,
+  "description": "Giro: aluguel de carros entre pessoas, por hora (protótipo navegável)",
+  "scripts": {
+    "build": "esbuild src/main.jsx --bundle --format=iife --target=es2019 --jsx-factory=React.createElement --jsx-fragment=React.Fragment --outfile=dist/app.js",
+    "watch": "npm run build -- --watch",
+    "start": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.2"
+  }
+}

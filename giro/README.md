@@ -1,13 +1,10 @@
-# Giro: protótipo da tela Explorar
+# Giro: protótipo navegável
 
-Aluguel de carros entre pessoas, cobrado por hora. Esta é a primeira fase: o **mapa com os carros disponíveis** perto de você, com lista, filtros, detalhe do carro e cálculo do preço.
+Aluguel de carros entre vizinhos, cobrado por hora. Este protótipo simula o app funcionando de ponta a ponta, para demonstrações e conversas com investidores. Todos os carros, pessoas e valores são fictícios e nenhum pagamento é cobrado.
 
 ## Como abrir
 
-É um site estático, sem build e sem dependências para instalar.
-
-- Mais simples: abra `giro/index.html` no navegador.
-- Ou sirva a pasta (recomendado para testar a geolocalização, que exige `localhost` ou HTTPS):
+Site estático, sem nada para instalar:
 
 ```bash
 cd giro
@@ -15,40 +12,51 @@ python3 -m http.server 8000
 # abra http://localhost:8000
 ```
 
-O mapa usa blocos do OpenStreetMap/CARTO, então precisa de internet. O resto (React, Leaflet, fonte) está em `vendor/` e `design-system/`.
+Também funciona abrindo `giro/index.html` direto no navegador. No computador, o app aparece numa moldura de celular com um resumo ao lado. No celular, ocupa a tela inteira.
 
-## O que dá para fazer
+O mapa usa ruas reais do OpenStreetMap/CARTO e precisa de internet. Sem acesso a esse servidor, o app troca sozinho para o mapa desenhado do design system.
 
-- Ver os carros como **pins de preço por hora** no mapa. Os indisponíveis no horário aparecem esmaecidos.
-- Filtrar por preço, câmbio automático, elétrico e nota.
-- Tocar num pin ou numa linha da lista para ver o detalhe: dono, entrega da chave, duração (1 a 24 h) e a quebra do preço (aluguel, proteção, taxa de serviço e total).
-- “Centralizar”: usa a sua localização. Longe de São Paulo, os carros de exemplo são reposicionados à sua volta.
-- No celular, painel inferior (espiada, lista aberta, detalhe). No desktop (≥ 900px), painel lateral.
-- Tema claro e escuro automáticos. Esc fecha o detalhe.
+## Roteiro de demonstração (5 minutos)
+
+1. **Boas-vindas.** Duas portas de entrada: “Quero alugar um carro” e “Quero ganhar com meu carro”.
+2. **Explorar.** Mapa com o preço por hora de cada carro. Filtre por preço, câmbio, elétrico, SUV ou nota. Toque num pin para ver o resumo.
+3. **Busca.** Toque na barra do topo para trocar o bairro (Vila Madalena, Paulista, Congonhas…), o dia, a hora e a duração.
+4. **Carro.** Ficha completa: anfitrião verificado, retirada da chave, avaliações, regras e diária máxima.
+5. **Pagamento.** Escolha a proteção, pague com Pix (QR de demonstração; aprova sozinho em alguns segundos ou em “Já paguei”) ou cartão.
+6. **Reserva.** Confirmação com código, chat com o anfitrião, vistoria com fotos e nível do tanque, contagem regressiva da viagem, destrancar o carro e avaliar na devolução.
+7. **Meus carros.** Lado de quem anuncia: ganhos das últimas semanas, próximas reservas, pausar um anúncio e editar o preço.
+8. **Anunciar.** Cadastro em 4 passos (modelo e placa, fotos, preço sugerido para a região, retirada e dias). Ao publicar, o carro aparece no mapa na hora.
+
+Para recomeçar do zero: Perfil → Reiniciar demonstração.
+
+## Modelo de receita (configurável em `src/data.js`)
+
+| Item | Quem paga | Valor de exemplo |
+| --- | --- | --- |
+| Taxa de serviço | quem aluga | 10% do aluguel + proteção |
+| Comissão | quem anuncia | 10% do aluguel |
+| Proteção básica | quem aluga | R$ 2,50/h (repassada à seguradora parceira) |
+| Proteção completa | quem aluga | R$ 5,50/h |
+
+Preço definido pelo dono, por hora, com diária máxima: depois de algumas horas no mesmo dia, quem aluga paga só a diária.
 
 ## Estrutura
 
-| Arquivo | O que é |
+| Caminho | O que é |
 | --- | --- |
 | `index.html` | Página |
-| `app.js` | Tela Explorar (React + Leaflet) |
-| `app.css` | Layout da tela (celular e desktop) |
-| `data.js` | Configuração (taxas, horário da busca) e os 12 carros fictícios |
+| `src/` | Código-fonte (React + JSX), uma tela por arquivo |
+| `dist/app.js` | Build pronto de `src/` (gerado, versionado para abrir sem instalar nada) |
+| `app.css` | Layout e estilos das telas |
 | `design-system/` | Tokens, componentes (`window.Giro`) e fonte do design system Giro |
 | `vendor/` | React 18.3.1 e Leaflet 1.9.4 |
 
-## Regras de preço (em `data.js`)
+Para alterar o código: `npm install` e depois `npm run build` (ou `npm run watch`).
 
-- Preço por hora definido pelo dono, com **diária máxima** (`dailyCap`). Acima dela, as horas extras do dia não são cobradas.
-- `protectionPerHour`: proteção básica cobrada por hora (exemplo: R$ 2,50).
-- `feeRate`: taxa de serviço paga por quem aluga (exemplo: 10%).
-- `ownerCommission`: comissão descontada do repasse ao dono (exemplo: 10%). Ainda não aparece nesta tela.
+## O que falta para virar produto
 
-## Próximos passos
-
-1. Backend com cadastro e verificação de CNH, anúncios de carros e calendário de disponibilidade.
-2. Busca de endereço e escolha de data e hora.
-3. Pagamento (Pix e cartão) com pré-autorização e repasse ao dono.
-4. Seguro por reserva com uma seguradora parceira.
-5. Fluxo de retirada e devolução com fotos do carro (vistoria) e check-in.
-6. Lado de quem anuncia: cadastro do carro, fotos, preço por hora, diária máxima e ganhos.
+1. Backend: contas, verificação de CNH e identidade, anúncios, calendário e reservas.
+2. Pagamentos reais (Pix e cartão) com pré-autorização, split e repasse semanal ao dono.
+3. Seguro por reserva com uma seguradora parceira.
+4. Vistoria com fotos reais e, depois, chave digital (telemetria) para retirada sem encontro.
+5. Apps nativos (iOS e Android) a partir destas telas e do design system.
