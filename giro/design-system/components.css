@@ -1,0 +1,144 @@
+/* Giro: component styles. Every value comes from tokens.css. */
+body { margin: 0; font-family: var(--font-sans); background: var(--surface); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.gr-num { font-variant-numeric: tabular-nums; }
+.gr-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Icon */
+.gr-icon { display: inline-block; flex: none; vertical-align: middle; }
+
+/* Button */
+.gr-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); height: var(--control-md); padding: 0 var(--space-4); border: 0; border-radius: var(--radius-md); font: inherit; font-size: 15px; line-height: 20px; font-weight: 600; white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color .15s ease, transform .1s ease; }
+.gr-btn:active:not(:disabled) { transform: scale(.98); }
+.gr-btn:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+.gr-btn:disabled { opacity: .4; cursor: not-allowed; }
+.gr-btn-lg { height: var(--control-lg); padding: 0 var(--space-6); font-size: 16px; }
+.gr-btn-block { display: flex; width: 100%; }
+.gr-btn-primary { background: var(--accent); color: var(--on-accent); }
+.gr-btn-primary:hover:not(:disabled) { background: var(--accent-ink); color: var(--surface); }
+.gr-btn-secondary { background: var(--surface-muted); color: var(--ink); }
+.gr-btn-secondary:hover:not(:disabled) { background: var(--line); }
+.gr-btn-ghost { background: transparent; color: var(--ink); }
+.gr-btn-ghost:hover:not(:disabled) { background: var(--surface-muted); }
+
+/* IconButton */
+.gr-iconbtn { display: inline-grid; place-items: center; width: var(--control-md); height: var(--control-md); padding: 0; border: 0; border-radius: var(--radius-full); background: transparent; color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color .15s ease, transform .1s ease; position: relative; }
+.gr-iconbtn:hover { background: var(--surface-muted); }
+.gr-iconbtn:active { transform: scale(.94); }
+.gr-iconbtn:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+.gr-iconbtn-floating { background: var(--surface); box-shadow: var(--shadow-sm); }
+.gr-iconbtn-floating:hover { background: var(--surface); }
+.gr-iconbtn-floating:focus-visible { box-shadow: var(--shadow-sm), var(--focus-ring); }
+.gr-iconbtn-sm { width: var(--control-sm); height: var(--control-sm); }
+.gr-iconbtn-sm::after { content: ""; position: absolute; inset: -4px; }
+.gr-iconbtn-outline { box-shadow: inset 0 0 0 1px var(--line-strong); }
+.gr-iconbtn-outline:hover { background: var(--surface-muted); }
+.gr-iconbtn:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+.gr-iconbtn-dot { position: absolute; top: 6px; right: 6px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: var(--radius-full); background: var(--ink); color: var(--surface); font-size: 11px; line-height: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Chip */
+.gr-chip { display: inline-flex; align-items: center; gap: 6px; height: var(--control-sm); padding: 0 14px; border: 1px solid var(--line); border-radius: var(--radius-full); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap; cursor: pointer; position: relative; -webkit-tap-highlight-color: transparent; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+.gr-chip::after { content: ""; position: absolute; inset: -4px 0; }
+.gr-chip:hover { border-color: var(--line-strong); }
+.gr-chip:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+.gr-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.gr-chip-floating { border-color: transparent; box-shadow: var(--shadow-sm); }
+
+/* Badge */
+.gr-badge { display: inline-flex; align-items: center; gap: var(--space-1); height: 22px; padding: 0 var(--space-2); border-radius: var(--radius-sm); background: var(--surface-muted); color: var(--ink); font-size: 12px; line-height: 16px; font-weight: 600; white-space: nowrap; }
+.gr-badge-accent { background: var(--accent-soft); color: var(--accent-ink); }
+.gr-badge-danger { background: var(--danger-soft); color: var(--danger); }
+
+/* SearchBar */
+.gr-search { display: flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-1) var(--space-1) 0; border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-lg); }
+.gr-search-main { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--space-3); padding: 6px var(--space-2) 6px var(--space-4); border: 0; border-radius: 10px; background: transparent; color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+.gr-search-main:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+.gr-search-text { min-width: 0; display: flex; flex-direction: column; }
+.gr-search-place { font-size: 15px; line-height: 20px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gr-search-when { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.gr-search-sep { width: 1px; height: 28px; background: var(--line); flex: none; }
+
+/* PricePin: the button carries the tail; the body is the pill. Selected and unavailable
+   outline body + tail as one shape with four hard drop-shadows. */
+.gr-pin { --pin-bg: var(--ink); --pin-fg: var(--surface); position: relative; display: inline-flex; padding: 0; border: 0; background: none; color: var(--pin-fg); font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; transform-origin: 50% calc(100% + 6px); transition: transform .18s cubic-bezier(.3,.7,.4,1.4); }
+.gr-pin::before { content: ""; position: absolute; z-index: 0; left: 50%; bottom: -5px; width: 10px; height: 10px; margin-left: -5px; background: var(--pin-bg); border-radius: 0 0 3px 0; transform: rotate(45deg); }
+.gr-pin::after { content: ""; position: absolute; z-index: 2; inset: -7px -2px; }
+.gr-pin-body { position: relative; z-index: 1; display: inline-flex; align-items: center; height: var(--pin-height); padding: 0 10px; border-radius: var(--radius-full); background: var(--pin-bg); color: var(--pin-fg); box-shadow: var(--shadow-sm); font-size: 14px; line-height: 20px; font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gr-pin:hover { transform: scale(1.06); }
+.gr-pin:focus-visible { outline: none; }
+.gr-pin:focus-visible .gr-pin-body { box-shadow: var(--focus-ring); }
+.gr-pin-selected { --pin-bg: var(--accent); --pin-fg: var(--on-accent); transform: scale(1.14); filter: drop-shadow(1.5px 0 0 var(--on-accent)) drop-shadow(-1.5px 0 0 var(--on-accent)) drop-shadow(0 1.5px 0 var(--on-accent)) drop-shadow(0 -1.5px 0 var(--on-accent)); }
+.gr-pin-selected:hover { transform: scale(1.14); }
+.gr-pin-selected .gr-pin-body, .gr-pin-unavailable .gr-pin-body { box-shadow: none; }
+.gr-pin-unavailable { --pin-bg: var(--surface); --pin-fg: var(--ink-muted); filter: drop-shadow(1px 0 0 var(--line-strong)) drop-shadow(-1px 0 0 var(--line-strong)) drop-shadow(0 1px 0 var(--line-strong)) drop-shadow(0 -1px 0 var(--line-strong)); }
+.gr-pin-unavailable .gr-pin-body { font-weight: 500; }
+
+/* MapCanvas */
+.gr-map { position: relative; overflow: hidden; background: var(--map-land); isolation: isolate; touch-action: none; }
+.gr-map-layer { position: absolute; inset: 0; transition: transform .45s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+.gr-map-art { position: absolute; left: -50%; top: -50%; width: 200%; height: 200%; display: block; }
+.gr-map-land { fill: var(--map-land); }
+.gr-map-road { fill: var(--map-road); }
+.gr-map-ave { stroke: var(--map-road); fill: none; stroke-linecap: round; }
+.gr-map-park { fill: var(--map-park); }
+.gr-map-water { fill: var(--map-water); }
+.gr-map-marker { position: absolute; z-index: 1; transform: translate(-50%, calc(-100% - 6px)); }
+.gr-map-marker-selected { z-index: 3; }
+.gr-me { position: absolute; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: var(--radius-full); background: var(--ink); box-shadow: 0 0 0 3px var(--surface), var(--shadow-sm); z-index: 2; }
+.gr-me::before { content: ""; position: absolute; inset: -14px; border-radius: inherit; background: var(--ink); opacity: .12; animation: gr-pulse 2.4s ease-out infinite; }
+@keyframes gr-pulse { 0% { transform: scale(.5); opacity: .22; } 100% { transform: scale(1.4); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .gr-me::before { animation: none; } .gr-map-layer, .gr-pin, .gr-sheet { transition: none; } }
+
+/* BottomSheet */
+.gr-sheet { position: relative; display: flex; flex-direction: column; background: var(--surface); color: var(--ink); border-radius: var(--radius-lg) var(--radius-lg) 0 0; box-shadow: var(--shadow-lg); transition: max-height .35s cubic-bezier(.2,.7,.2,1); }
+.gr-sheet-grab { display: grid; place-items: center; height: 22px; width: 100%; padding: 0; border: 0; background: transparent; cursor: grab; flex: none; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.gr-sheet-grab::before { content: ""; width: 36px; height: 4px; border-radius: var(--radius-full); background: var(--line-strong); }
+.gr-sheet-grab:focus-visible { outline: 2px solid transparent; box-shadow: inset 0 0 0 2px var(--ink); }
+.gr-sheet-head { display: flex; align-items: flex-start; gap: var(--space-3); padding: 2px var(--space-4) var(--space-3); flex: none; }
+.gr-sheet-titles { flex: 1; min-width: 0; }
+.gr-sheet-title { margin: 0; font-size: 17px; line-height: 24px; font-weight: 600; }
+.gr-sheet-sub { margin: 0; font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); }
+.gr-sheet-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 var(--space-4) var(--space-4); }
+.gr-sheet-foot { flex: none; padding: var(--space-3) var(--space-4) var(--space-4); border-top: 1px solid var(--line); background: var(--surface); }
+
+/* CarCard */
+.gr-car { position: relative; display: flex; align-items: center; gap: var(--space-3); width: 100%; padding: var(--space-3) 0; border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; }
+button.gr-car { cursor: pointer; border-radius: var(--radius-sm); -webkit-tap-highlight-color: transparent; }
+button.gr-car:hover .gr-car-name { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+button.gr-car:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+.gr-car + .gr-car::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--line); }
+.gr-car-thumb { position: relative; display: grid; place-items: center; width: 64px; height: 64px; border-radius: var(--radius-sm); background: var(--surface-muted); color: var(--ink-muted); flex: none; overflow: hidden; }
+.gr-car-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gr-car-swatch { position: absolute; right: 6px; bottom: 6px; width: 10px; height: 10px; border-radius: var(--radius-full); box-shadow: 0 0 0 1px var(--line-strong); }
+.gr-car-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.gr-car-name { margin: 0; font-size: 17px; line-height: 24px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gr-car-year { font-weight: 500; color: var(--ink-muted); }
+.gr-car-meta { display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); white-space: nowrap; overflow: hidden; font-variant-numeric: tabular-nums; }
+.gr-car-meta .gr-icon { color: var(--ink); }
+.gr-dot { flex: none; }
+.gr-dot::before { content: "·"; }
+.gr-car-price { flex: none; text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
+.gr-car-amount { font-size: 17px; line-height: 24px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.gr-car-unit { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); }
+.gr-car-off .gr-car-name, .gr-car-off .gr-car-amount { color: var(--ink-muted); }
+.gr-car-lg .gr-car-thumb { width: 88px; height: 72px; }
+.gr-car-lg .gr-car-name { font-size: 20px; line-height: 26px; letter-spacing: -0.01em; white-space: normal; }
+.gr-car-lg .gr-car-meta { white-space: normal; flex-wrap: wrap; row-gap: 0; }
+
+/* Stepper */
+.gr-stepper { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.gr-stepper-label { display: flex; flex-direction: column; min-width: 0; }
+.gr-stepper-title { font-size: 15px; line-height: 20px; font-weight: 600; }
+.gr-stepper-hint { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.gr-stepper-ctrl { display: flex; align-items: center; gap: var(--space-2); }
+.gr-stepper-value { min-width: 56px; text-align: center; font-size: 17px; line-height: 24px; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+/* PriceSummary */
+.gr-summary { margin: 0; display: flex; flex-direction: column; gap: var(--space-2); font-variant-numeric: tabular-nums; }
+.gr-summary-row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); margin: 0; font-size: 15px; line-height: 22px; }
+.gr-summary-row dt { color: var(--ink-muted); margin: 0; }
+.gr-summary-row dd { margin: 0; color: var(--ink); font-weight: 500; white-space: nowrap; }
+.gr-summary-hint { display: block; font-size: 13px; line-height: 18px; }
+.gr-summary-total { padding-top: var(--space-3); margin-top: var(--space-1); border-top: 1px solid var(--line); }
+.gr-summary-total dt, .gr-summary-total dd { color: var(--ink); font-size: 17px; line-height: 24px; font-weight: 650; }
+.gr-summary-note { display: flex; gap: var(--space-2); align-items: flex-start; margin: var(--space-3) 0 0; font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); }
+.gr-summary-note .gr-icon { margin-top: 1px; }

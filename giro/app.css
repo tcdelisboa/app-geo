@@ -1,0 +1,48 @@
+/* Layout da tela Explorar. Cores, espaços e raios vêm de design-system/tokens.css. */
+html, body, #app { height: 100%; }
+body { overflow: hidden; overscroll-behavior: none; }
+.app { position: relative; height: 100%; overflow: hidden; background: var(--map-land); }
+
+/* Map */
+.map { position: absolute; inset: 0; z-index: 0; background: var(--map-land); }
+.leaflet-container { font-family: var(--font-sans); background: var(--map-land); }
+.giro-marker { background: none; border: 0; }
+.giro-marker .gr-map-marker { position: absolute; }
+.leaflet-control-attribution { font-size: 11px; line-height: 16px; background: color-mix(in srgb, var(--surface) 80%, transparent) !important; color: var(--ink-muted); padding: 0 6px !important; border-radius: var(--radius-sm) 0 0 0; }
+.leaflet-control-attribution a { color: var(--ink-muted); }
+.leaflet-bottom { bottom: var(--sheet-h); transition: bottom .35s cubic-bezier(.2,.7,.2,1); }
+
+/* Overlays */
+.top { position: absolute; z-index: 600; left: 0; right: 0; top: 0; padding: max(16px, env(safe-area-inset-top)) 16px 0; display: flex; flex-direction: column; gap: 12px; pointer-events: none; }
+.top > * { pointer-events: auto; }
+.chips { display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px; padding: 2px 16px 6px; scrollbar-width: none; transition: opacity .2s ease, transform .2s ease; }
+.chips::-webkit-scrollbar { display: none; }
+.chips[hidden] { display: flex; opacity: 0; transform: translateY(-8px); pointer-events: none; visibility: hidden; }
+.locate { position: absolute; z-index: 600; right: 16px; bottom: calc(var(--sheet-h) + 28px); transition: bottom .35s cubic-bezier(.2,.7,.2,1), opacity .2s ease; }
+.locate.is-hidden { opacity: 0; pointer-events: none; }
+.toast { position: absolute; z-index: 800; left: 50%; top: 140px; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 14px; border-radius: var(--radius-md); background: var(--ink); color: var(--surface); font-size: 14px; line-height: 20px; font-weight: 500; box-shadow: var(--shadow-lg); }
+
+/* Sheet (mobile) */
+.panel.gr-sheet { position: absolute; z-index: 700; left: 0; right: 0; bottom: 0; padding-bottom: env(safe-area-inset-bottom); transition: height .35s cubic-bezier(.2,.7,.2,1); }
+.close { position: absolute; top: 6px; right: 10px; z-index: 2; }
+.detail { padding-top: 10px; }
+.owner { display: flex; align-items: center; gap: 12px; padding: 12px 0; margin-top: 4px; border-top: 1px solid var(--line); }
+.avatar { display: grid; place-items: center; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--surface-muted); font-size: 13px; font-weight: 600; flex: none; }
+.owner-text { display: flex; flex-direction: column; min-width: 0; }
+.owner-name { font-size: 15px; line-height: 20px; font-weight: 600; }
+.owner-sub { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); }
+.block { padding: 12px 0 16px; border-top: 1px solid var(--line); }
+.empty { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 8px 0; }
+.empty p { margin: 0; font-size: 15px; line-height: 22px; color: var(--ink-muted); }
+.foot-note { margin: 8px 0 0; text-align: center; font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink-muted); }
+.done { display: flex; align-items: center; justify-content: center; gap: 8px; height: var(--control-lg); border-radius: var(--radius-md); background: var(--accent-soft); color: var(--accent-ink); font-size: 15px; font-weight: 600; }
+
+/* Desktop: the sheet becomes a floating side panel */
+.is-desktop .panel.gr-sheet { top: 16px; left: 16px; right: auto; bottom: 16px; width: 400px; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.is-desktop .panel .gr-sheet-grab { visibility: hidden; height: 12px; }
+.is-desktop .panel .gr-sheet-foot { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.is-desktop .top { left: 432px; right: auto; width: min(520px, calc(100% - 464px)); }
+.is-desktop .chips { margin: 0; padding: 2px 0 6px; flex-wrap: wrap; overflow: visible; }
+.is-desktop .locate { bottom: 32px; right: 24px; }
+.is-desktop .toast { left: calc(50% + 208px); }
+.is-desktop .leaflet-bottom { bottom: 0; }

@@ -1,0 +1,70 @@
+/* Giro — gerado de tokens.json */
+:root, [data-theme="light"] {
+  --surface: #ffffff;
+  --surface-muted: #f3f3f0;
+  --line: #e2e2dc;
+  --line-strong: #84878b;
+  --ink: #141516;
+  --ink-muted: #5d6065;
+  --accent: #16c79a;
+  --on-accent: #0b1f19;
+  --accent-ink: #077a5c;
+  --accent-soft: #dcf7ee;
+  --danger: #b93a0c;
+  --danger-soft: #fdebe2;
+  --scrim: #14151666;
+  --map-road: #ffffff;
+  --map-land: #ecece7;
+  --map-park: #dbe8d3;
+  --map-water: #cde0e9;
+  --shadow-sm: 0 1px 2px #1415161f, 0 2px 6px #14151614;
+  --shadow-lg: 0 -1px 0 #1415160a, 0 -8px 28px #1415161f;
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #141516;
+}
+[data-theme="dark"] {
+  --surface: #17181a;
+  --surface-muted: #232427;
+  --line: #303236;
+  --line-strong: #7c8086;
+  --ink: #f1f1ed;
+  --ink-muted: #a4a7ac;
+  --accent: #2fdcac;
+  --on-accent: #0b1f19;
+  --accent-ink: #4fe3b9;
+  --accent-soft: #11362b;
+  --danger: #ff9466;
+  --danger-soft: #3d1d10;
+  --scrim: #00000099;
+  --map-road: #2c2e32;
+  --map-land: #1d1e21;
+  --map-park: #1b2a21;
+  --map-water: #13242e;
+  --shadow-sm: 0 1px 3px #000000b3;
+  --shadow-lg: 0 -8px 28px #000000cc;
+  --focus-ring: 0 0 0 2px #17181a, 0 0 0 4px #f1f1ed;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --control-sm: 36px;
+  --control-md: 44px;
+  --control-lg: 52px;
+  --pin-height: 30px;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.display { font-family: var(--font-sans); font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.02em; }
+.title { font-family: var(--font-sans); font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.heading { font-family: var(--font-sans); font-size: 17px; line-height: 24px; font-weight: 600;  }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 400;  }
+.label { font-family: var(--font-sans); font-size: 15px; line-height: 20px; font-weight: 600;  }
+.price { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 650;  }
+.caption { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 500;  }
+@font-face { font-family: "Instrument Sans"; src: url("fonts/InstrumentSans-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
